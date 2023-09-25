@@ -2,6 +2,7 @@ package com.ashen.springwithmongo.service;
 
 import com.ashen.springwithmongo.model.Task;
 import com.ashen.springwithmongo.repository.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 @Service
 public class TaskService {
+    @Autowired
     private TaskRepository taskRepository;
 
     //CRUD CREATE, READ, UPDATE, DELETE

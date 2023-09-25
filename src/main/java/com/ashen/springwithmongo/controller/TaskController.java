@@ -29,8 +29,22 @@ public class TaskController {
     public Task getTask(@PathVariable String taskId){
         return service.getTaskByTaskId(taskId);
     }
+    @GetMapping("severity/{severity}")
+    public List<Task> findTaskUsingSeverity(@PathVariable int severity){
+        return service.getTaskBySeverity(severity);
+    }
+    @GetMapping("assignee/{assignee}")
+    public List<Task> getTaskByAssignee(@PathVariable String assignee){
+        return service.getTaskByAssignee(assignee);
+    }
 
-    public List<Task> getTaskBySeverity(int severity){
-        return taskRepository.findBySeverity(severity);
+    @PutMapping
+    public Task modifyTask(@RequestBody Task task){
+        return service.updateTask(task);
+    }
+
+    @DeleteMapping("/{taskId}")
+    public String deleteTask(@PathVariable String taskId){
+        return service.deleteTask(taskId);
     }
 }
